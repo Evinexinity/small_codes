@@ -62,7 +62,7 @@ try:
         sleep(2)
         print(winner + " !!!!!!!!!")
         sleep(2)
-        print(f"GOOD JOB {winner}, YOU JUST FUCKING WON!!!!!")
+        print(f"This is All Made Up, You Know. Playing with Luck and Stuff... {winner} !")
         print(f"(after --> {timerator()} <-- Attempts by the way.")
         reset_q = input("Should i Restart the app or quit? (q/r)\n>> ")
         if reset_q.lower() == "q":
@@ -81,8 +81,8 @@ try:
     main()
 
 except KeyboardInterrupt:
-    print("You wasted my Time. FUCK OFF.")
+    print("\nYou wasted my Time. FUCK OFF.")
     sleep(1)
 finally:
-    print("App Exited/Terminated.")
+    print("\nApp Exited/Terminated.")
     sleep(1)
