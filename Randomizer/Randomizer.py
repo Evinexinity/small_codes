@@ -1,4 +1,4 @@
-import random
+from random import randint, choice
 from time import sleep
 
 try:
@@ -10,8 +10,10 @@ try:
         except:
             print("YOU HAD ONE FUCKING JOB, CHOOSE A NUMBER; A NUMBER!")
             main()
+        print()
         for entry_num in range(entries):
             entries_list.append(input(f"What is Entry Number {entry_num+1}'s Alias?\n>> "))
+            print("..", end = "\n\n")
         continue_q = input(f"Is this Right? (Y/n/q):\n\t{entries_list}\n>> ")
         if continue_q.lower() in ("y", ""):
             app(entries_list)
@@ -26,8 +28,8 @@ try:
         
     def app(entries):
         def timerator():
-            times = random.randint(random.randint(0,255), random.randint(256, 512))
-            times *= random.randint(random.randint(8,16), random.randint(17,64))
+            times = randint(randint(0,255), randint(256, 512))
+            times *= randint(randint(8,16), randint(17,64))
             return times
         
         print(f"Ok, Calculating an OutPut out of {len(entries)} Entries...")
@@ -42,11 +44,11 @@ try:
         
         silence = input("for the Last question, Should i Disable Silent Mode? It's \"True\" By default. (True, False)\n>> ")
         while silence.lower() not in ("true", "false", ""):
-            print("You messed up, Try again.")
+            print("\nYou messed up, Try again.")
             silence = input("Should i Disable Silent Mode? It's \"True\" By default. (True, False)\n>> ")
 
         for time in range(timerator()):
-            score[random.choice(entries)] += 1
+            score[choice(entries)] += 1
             if silence.lower() == "false":
                 print(score)
 
@@ -56,7 +58,9 @@ try:
         sleep(0.2)
         print("Okay, Finished! Printing Results...")
         sleep(0.2)
-        print(f"So, This is The score for Each of the Elements you Gave Me:\n{score}")
+        print(f"So, This is The score for Each of the Elements you Gave Me:\n")
+        for element in score:
+            print(score, end = "\n\n")
         winner = max(score, key=score.get)
         print("...and The Winner is NO ONE BUT!!!!:\n")
         sleep(2)
@@ -74,15 +78,14 @@ try:
             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             main()
         elif reset_q.lower() not in ("q", "r"):
-            print("You messed up, but ima Close up anyway; (Stop messing up you Bozo)")
+            print("You messed up, but ima Close up anyway;")
             sleep(3)
             exit()
         #return winner # Uncomment if you ever Wanted to add Saving-To-File Feature to this Miserable program.
     main()
 
 except KeyboardInterrupt:
-    print("\nYou wasted my Time. FUCK OFF.")
-    sleep(1)
+    print("\nI Understand, Bye.")
+
 finally:
     print("\nApp Exited/Terminated.")
-    sleep(1)
